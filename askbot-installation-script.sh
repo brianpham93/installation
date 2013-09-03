@@ -46,8 +46,15 @@ sudo chmod -R g+w ~/qa/log
 # Install apache
 sudo apt-get install -y --force-yes apache2 libapache2-mod-wsgi
 
+# Config files
+sudo wget "https://raw.github.com/nhimhobao/askbot-installation-scripts/master/qa" -P /etc/apache2/sites-available/
+
 # Remove default configuration files
 sudo rm /etc/apache2/sites-available/default 
 sudo rm /etc/apache2/sites-available/default-ssl    
 sudo rm /etc/apache2/sites-enabled/000-default
 sudo ln -s /etc/apache2/sites-available/qa /etc/apache2/sites-enabled/qa
+
+# Restart apache one last time
+sudo services apache2 restart
+
