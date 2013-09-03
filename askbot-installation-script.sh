@@ -56,5 +56,5 @@ sudo rm /etc/apache2/sites-enabled/000-default
 sudo ln -s /etc/apache2/sites-available/qa /etc/apache2/sites-enabled/qa
 
 # Restart apache one last time
-sudo services apache2 restart
+sudo service apache2 restart
 
