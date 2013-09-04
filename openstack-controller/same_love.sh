@@ -43,8 +43,8 @@ mysql -u root -ppassword -e "GRANT ALL PRIVILEGES ON keystone.* TO 'keystone'@'l
 mysql -u root -ppassword -e "CREATE DATABASE quantum"
 mysql -u root -ppassword -e "GRANT ALL PRIVILEGES ON quantum.* TO 'quantum'@'localhost' IDENTIFIED BY 'password'"
 
-sudo echo "mysql -u root -ppassword -e 'GRANT ALL PRIVILEGES ON quantum.* TO 'quantum'@'10.10.10.9' IDENTIFIED BY 'password''" > todo
-sudo echo "mysql -u root -ppassword -e 'GRANT ALL PRIVILEGES ON quantum.* TO 'quantum'@'10.10.10.11' IDENTIFIED BY 'password'" > todo
+echo "GRANT ALL PRIVILEGES ON quantum.* TO 'quantum'@'10.10.10.9" > todo
+echo "GRANT ALL PRIVILEGES ON quantum.* TO 'quantum'@'10.10.10.11" > todo
 
 mysql -u root -ppassword -e "FLUSH PRIVILEGES"
 
