@@ -1,28 +1,3 @@
-# Update kernel
-sudo apt-get -y --force-yes dist-upgrade
-sudo apt-get -y --force-yes update
-
-# Install keyring
-sudo apt-get -y --force-yes install ubuntu-cloud-keyring
-
-# Add repository
-sudo echo "deb http://ubuntu-cloud.archive.canonical.com/ubuntu precise-updates/grizzly main" > /etc/apt/sources.list.d/cloud-archive.list
-
-sudo apt-get -y --force-yes update 
-sudo apt-get -y --force-yes upgrade
-
-#
-sudo echo "deb http://archive.gplhost.com/debian grizzly main" > /etc/apt/sources.list.d/grizzly.list
-sudo echo "deb http://archive.gplhost.com/debian grizzly-backports main" >/etc/apt/sources.list.d/grizzly.list
-
-sudo apt-get -y --force-yes update
-sudo apt-get -y --force-yes install gplhost-archive-keyring
-sudo apt-get -y --force-yes upgrade
-
-
-# Install 
-sudo apt-get -y --force-yes install -y ntp
-
 # Install mysql server and plugin for python
 echo mysql-server mysql-server/root_password password password | sudo debconf-set-selections
 echo mysql-server mysql-server/root_password_again password password | sudo debconf-set-selections
@@ -55,7 +30,3 @@ sudo rabbitmqctl change_password guest password
 # Install keystone
 sudo apt-get install -y keystone python-keystone python-keystoneclient
 echo "Edit /etc/keystone/keystone.conf" > todo
-
-# Seed data
-sudo chmod +x ./bash.sh
-./bash.sh
