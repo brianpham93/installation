@@ -19,8 +19,8 @@ mysql -u root -ppassword -e "grant all privileges on askbot.* to askbot@localhos
 sudo service mysql restart
 
 # Setup askbot
-sudo mkdir ~/qa
-cd ~/qa
+sudo mkdir /var/www/qa
+cd /var/www/qa
 sudo askbot-setup -n . -e 3 -d askbot -u askbot -p askbot
 
 # Upgrade pip
@@ -39,9 +39,9 @@ sudo python manage.py migrate django_authopenid --fake
 
 # Deploy on webserver
 sudo python manage.py collectstatic --noinput
-sudo chown -R www-data:www-data ~/qa
-sudo chmod -R g+w ~/qa/askbot/upfiles
-sudo chmod -R g+w ~/qa/log
+sudo chown -R www-data:www-data /var/www/qa
+sudo chmod -R g+w /var/www/qa/askbot/upfiles
+sudo chmod -R g+w /var/www/qa/log
 
 # Install apache
 sudo apt-get install -y --force-yes apache2 libapache2-mod-wsgi
